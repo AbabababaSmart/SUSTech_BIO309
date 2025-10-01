@@ -13,6 +13,11 @@
 chmod +x hg38_tool.sh
 ```
 
+## 数据下载
+```
+wget –c https://hgdownload.cse.ucsc.edu/goldenpath/hg38/bigZips/hg38.fa.gz
+```
+
 ## 使用方法
 
 ```
@@ -21,18 +26,18 @@ chmod +x hg38_tool.sh
 
 参数说明:
   -a ACTION    (必需) 指定功能
-      check       : 检查 hg38.fa 文件基本信息
-      Ns          : 统计 N 碱基 (全基因组 或 单条染色体)
-      NsAll       : 输出所有染色体的 N 碱基数量表格
-      length      : 计算某条染色体长度、N 数量和 %Ns
-      lengthAll   : 输出所有染色体长度、N 数量和 %Ns 表格
-      maxNs       : 找出 %Ns 最高的染色体
-      subseq      : 提取子序列
+      check       : 检查 hg38.fa 文件基本信息  
+      Ns          : 统计 N 碱基 (全基因组 或 单条染色体)  
+      NsAll       : 输出所有染色体的 N 碱基数量表格    
+      length      : 计算某条染色体长度、N 数量和 %Ns  
+      lengthAll   : 输出所有染色体长度、N 数量和 %Ns 表格  
+      maxNs       : 找出 %Ns 最高的染色体    
+      subseq      : 提取子序列  
 
-  -c CHROM    指定染色体名称 (如 chr1, chr2)
-  -s START    提取子序列起始位置 (1-based)
-  -e END      提取子序列终止位置
-  -O OUTPUT   输出文件名 (可选, 默认 chrX_start_end.fa)
+  -c CHROM    指定染色体名称 (如 chr1, chr2)  
+  -s START    提取子序列起始位置 (1-based)  
+  -e END      提取子序列终止位置  
+  -O OUTPUT   输出文件名 (可选, 默认 chrX_start_end.fa)  
 
 
 ## 使用示例
