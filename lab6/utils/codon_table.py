@@ -1,3 +1,4 @@
+# https://www.genscript.com/tools/codon-table
 codon_table = {
     'ATA': 'I', 'ATC': 'I', 'ATT': 'I', 'ATG': 'M',
     'ACA': 'T', 'ACC': 'T', 'ACG': 'T', 'ACT': 'T',
