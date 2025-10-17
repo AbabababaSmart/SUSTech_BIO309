@@ -16,3 +16,5 @@ codon_table = {
     'TAC': 'Y', 'TAT': 'Y', 'TAA': '*', 'TAG': '*',
     'TGC': 'C', 'TGT': 'C', 'TGA': '*', 'TGG': 'W',
 }
+
+# biotite.sequence.CodonTable(codon_dict, starts) could serve as an alternative option
