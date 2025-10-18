@@ -4,6 +4,7 @@
 #### Step 1. Download the FASTA data
 ```bash
 wget –c https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_49/gencode.v49.transcripts.fa.gz
+gunzip gencode.v49.transcripts.fa.gz
 ```
 
 #### Step 2. Run the script
