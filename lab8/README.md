@@ -2,10 +2,19 @@
 
 This guide focuses on processing and analyzing transcript data from the GENCODE release 49 dataset. The dataset contains genomic information about human transcripts, including their IDs, gene names, types, and lengths. 
 
-Using `awk`, various tasks will be performed, such as filtering specific categories (e.g., protein-coding genes), pattern matching, and generating summary statistics. The aim is to extract relevant information, classify transcripts by length, and compute distribution and average transcript length by gene type.
+| **Field** | **Meaning**                     | **Example**          |
+| --------- | ------------------------------- | -------------------- |
+| `$1`      | Transcript ID                   | ENST00000456328.2    |
+| `$2`      | Gene ID                         | ENSG00000290825.1    |
+| `$3`      | OTTHUMG or strand info (-or ID) | OTTHUMT00000362751.1 |
+| `$4`      | OTTHUMT ID                      | DDX11L2-202          |
+| `$5`      | Transcript name                 | DDX11L2              |
+| `$6`      | Gene name                       | DDX11L2              |
+| `$7`      | Transcript length (nt)          | 1657                 |
+| `$8`      | Gene type                       | InCRNA               |
 
-## Requiements
-![requirements](figures/requirements.png)
+
+Using `awk`, various tasks will be performed, such as filtering specific categories (e.g., protein-coding genes), pattern matching, and generating summary statistics. The aim is to extract relevant information, classify transcripts by length, and compute distribution and average transcript length by gene type.
 
 
 ## Dataset download
