@@ -19,7 +19,7 @@ Dayhoff PAM (Point Accepted Mutation) 矩阵的核心建模思想是利用进化
 ### 第二步：计算相对突变率 $RM$ (Relative Mutability)
 计算如果氨基酸为 $j$，则它发生突变的条件概率为：  
 $$RM_{j} = \frac{\sum_{k, k \neq j} A_{kj}}{f_{j}}$$
-> *注：通常以丙氨酸 (Ala) 为基准，通过   $RM_{j} = \frac{RM_{j}}{RM_{Ala}} \times 100$ 进行归一化。*
+> *注：通常以丙氨酸 (Ala) 为基准，通过  $RM_{j} = \frac{RM_{j}}{RM_{Ala}} \times 100$ 进行归一化。*
 
 ### 第三步：计算条件突变概率 $M$
 计算当氨基酸 $j$ 发生突变时，它变为氨基酸 $i$ 的条件概率，并结合其本身的突变难易度：  
