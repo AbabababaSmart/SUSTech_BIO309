@@ -2,7 +2,7 @@
 
 The **Needleman-Wunsch** algorithm is used for global sequence alignment. It works by filling a dynamic programming (DP) matrix that represents the optimal alignment score between two sequences at each position, considering possible matches, mismatches, and gap penalties. Here's the process, as illustrated in the image:
 
-![image](/assests/NW_algo_pipeline.png)
+![image](/assets/NW_algo_pipeline.png)
 
 1. **Initialization**:
 

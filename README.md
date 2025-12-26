@@ -10,4 +10,6 @@ This repository contains code references for the **BIO309 Computational Biology*
 
 - **lab8**: Instructions for processing and analyzing transcript data from the GENCODE release 49 dataset using `awk`. It includes tasks such as extracting specific transcript information, filtering by gene type, classifying transcripts by length, and generating summary statistics like transcript counts and average lengths by gene type.
 
-- **lab9**: PAM1 matrix calculation
+- **lab9**: PAM1 matrix calculation.
+
+- **lab10**: Needleman-Wunchsch algorithm flow for global seq alignment.
