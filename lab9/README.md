@@ -18,10 +18,13 @@ Dayhoff PAM (Point Accepted Mutation) 矩阵的核心建模思想是利用进化
 
 ### 第二步：计算相对突变率 $RM$ (Relative Mutability)
 计算如果氨基酸为 $j$，则它发生突变的条件概率为：  
+
 $$
 RM_j = \frac{\sum_{k, k \neq j} A_{kj}}{f_j}
 $$
+
 > **注**：通常以丙氨酸 (Ala) 为基准，通过 
+
 > $$
 > RM_j = \frac{RM_j}{RM_{\text{Ala}}} \times 100
 > $$  
@@ -37,7 +40,7 @@ $$
 计算缩放因子 $\lambda$，使得整个序列在单位进化时间内总的突变概率为 1%：
 
 1. **计算缩放因子 $\lambda$**：   
- 
+
 $$
 \lambda = \frac{0.01}{\sum_{j=1}^{20} f_j \left( \sum_{k \neq j} M_{kj} \right)}
 $$
