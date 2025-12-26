@@ -3,7 +3,7 @@
 Dayhoff PAM (Point Accepted Mutation) 矩阵的核心建模思想是利用进化过程中被自然选择保留下来的“接受性点突变”来量化序列变化。
 
 ## 1. 核心数学符号定义
-* **$A$**：$20 * 20$ 的 APM 计数矩阵，其中 $A_{ij}$ 是氨基酸 $j$ 被替换为 $i$ 的观测次数。
+* **$A$**：$20 \times 20$ 的 APM 计数矩阵，其中 $A_{ij}$ 是氨基酸 $j$ 被替换为 $i$ 的观测次数。
 * **$f$**：频率向量，$f_i$ 表示氨基酸 $i$ 的自然出现概率。
 * **$RM$**：相对突变率 (Relative Mutability)，反映某种氨基酸突变的容易程度。
 * **$M$**：未缩放突变矩阵，表示某种条件概率。
@@ -18,29 +18,41 @@ Dayhoff PAM (Point Accepted Mutation) 矩阵的核心建模思想是利用进化
 
 ### 第二步：计算相对突变率 $RM$ (Relative Mutability)
 计算如果氨基酸为 $j$，则它发生突变的条件概率为：  
-$$RM_{j} = \frac{\sum_{k, k \neq j} A_{kj}}{f_{j}}$$
-> *注：通常以丙氨酸 (Ala) 为基准，通过 $RM_{j} = \frac{RM_{j}}{RM_{Ala}} * 100$ 进行归一化。*
+$$
+RM_j = \frac{\sum_{k, k \neq j} A_{kj}}{f_j}
+$$
+> **注**：通常以丙氨酸 (Ala) 为基准，通过 
+> $$
+> RM_j = \frac{RM_j}{RM_{\text{Ala}}} \times 100
+> $$  
+> 进行归一化。
 
 ### 第三步：计算条件突变概率 $M$
 计算当氨基酸 $j$ 发生突变时，它变为氨基酸 $i$ 的条件概率，并结合其本身的突变难易度：  
-$$M_{ij} = \frac{A_{ij}}{\sum_{k, k \neq j} A_{kj}} \times RM_{j}$$
+$$
+M_{ij} = \frac{A_{ij}}{\sum_{k, k \neq j} A_{kj}} \times RM_j
+$$
 
 ### 第四步：缩放至 PAM1 标准
 计算缩放因子 $\lambda$，使得整个序列在单位进化时间内总的突变概率为 1%：
 
-1.  **计算缩放因子 $\lambda$**：  
-    $$\lambda = \frac{0.01}{\sum_{j=1}^{20} f_j \left( \sum_{k \neq j} M_{kj} \right)}$$
+1. **计算缩放因子 $\lambda$**：  
+$$
+\lambda = \frac{0.01}{\sum_{j=1}^{20} f_j \left( \sum_{k \neq j} M_{kj} \right)}
+$$
 
-2.  **生成 PAM1 矩阵元素**：  
+2. **生成 PAM1 矩阵元素**：  
     * **非对角线（突变概率）**：$PAM_{ij} = \lambda M_{ij}$  
     * **对角线（保持不变概率）**：$PAM_{jj} = 1 - \sum_{k \neq j} PAM_{kj}$  
 
 ---
 
 ## 3. 化简一步
-在实际计算中，上述步骤可以简化为直接从计数和频率求得非对角线元素：  
+在实际计算中，上述步骤可以简化为直接从计数和频率求得非对角线元素：
 
-$$PAM_{ij} = \frac{A_{ij}}{\sum_{m,n, m \neq n} A_{mn}} \times \frac{0.01}{f_j}$$
+$$
+PAM_{ij} = \frac{A_{ij}}{\sum_{m,n, m \neq n} A_{mn}} \times \frac{0.01}{f_j}
+$$
 
 **公式逻辑解读：**  
 - $\frac{A_{ij}}{\text{Total Mutations}}$：该突变在所有观测突变中的占比。
@@ -50,4 +62,6 @@ $$PAM_{ij} = \frac{A_{ij}}{\sum_{m,n, m \neq n} A_{mn}} \times \frac{0.01}{f_j}$
 
 ## 4. 进化距离扩展 (PAM N)
 通过对 PAM1 矩阵进行矩阵幂运算，可以推导出更长进化时间尺度的替换矩阵：  
-$$PAM_N = (PAM_1)^N$$
+$$
+PAM_N = (PAM_1)^N
+$$
