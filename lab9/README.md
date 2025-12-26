@@ -32,8 +32,8 @@ $$M_{ij} = \frac{A_{ij}}{\sum_{k, k \neq j} A_{kj}} \times RM_{j}$$
     $$\lambda = \frac{0.01}{\sum_{j=1}^{20} f_j \left( \sum_{k \neq j} M_{kj} \right)}$$
 
 2.  **生成 PAM1 矩阵元素**：  
-    * **非对角线（突变概率）**：$PAM_{ij} = \lambda M_{ij}$  
-    * **对角线（保持不变概率）**：$PAM_{jj} = 1 - \sum_{k \neq j} PAM_{kj}$  
+    * **非对角线（突变概率）**：  $PAM_{ij} = \lambda M_{ij}$  
+    * **对角线（保持不变概率）**：  $PAM_{jj} = 1 - \sum_{k \neq j} PAM_{kj}$  
 
 ---
 
