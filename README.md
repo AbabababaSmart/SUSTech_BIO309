@@ -13,3 +13,5 @@ This repository contains code references for the **BIO309 Computational Biology*
 - **lab9**: PAM1 matrix calculation.
 
 - **lab10**: Needleman-Wunchsch algorithm flow for global seq alignment.
+
+- **final**: It contains the final exam review PPT and the corresponding cheating paper for reference.
